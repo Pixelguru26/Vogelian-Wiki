@@ -1,0 +1,238 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+  <head>
+    <title>Vogelian Supremacy</title>
+    <meta name="description" content="The official Vogelian Supremacy documentation.">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/theme-supremacy.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+      .animate-opacity-1 {
+        animation: 0.8s 0.2s fadeIn;
+        animation-fill-mode: forwards;
+        opacity: 0;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+    <script src="https://kit.fontawesome.com/88a14cb03e.js" crossorigin="anonymous"></script>
+    <script src="/client.js"></script>
+    <script type="text/javascript">
+      function toggleSec(sec) {
+        var x = document.getElementById(sec);
+        x.classList.toggle('w3-show');
+      }
+      function ca() {
+        var secs = document.getElementsByClassName('sec');
+        for (var i = 0; i < secs.length; i++) {
+          secs[i].classList.remove('w3-show');
+        }
+        secs = document.getElementsByClassName('tab');
+        for (var i = 0; i < secs.length; i++) {
+          secs[i].classList.remove('graphene');
+        }
+      }
+      function closeSec(sec) {
+        sec.classList.remove('w3-show');
+      }
+      function loadDoc(doc) {
+        document.getElementById('port').src = '/Pages/' + doc + '.xhtml';
+      }
+      function toggleOpen(sec) {
+        sec.classList.toggle('graphene');
+      }
+      
+      var navClose = 0;
+    </script>
+    <script type="text/javascript">
+      var pages = {
+        Culture: {
+          Heroes: "Heroes",
+          History: "History",
+          Subcultures: "Subcultures",
+          Language: "The Gesante Language",
+          Underworld: "Underworld",
+          Urbanization: "Urbanization"
+        },
+        Military: {
+          "Aerial Armaments": "AirArms",
+          "Aerial Vehicles": "AirVehicles",
+          "Land Armaments": "LandArms",
+          "Land Vehicles": "LandVehicles",
+          "Naval Armaments": "NavalArms",
+          "Naval Vehicles": "NavalVehicles",
+          "Infantry Armaments": "AirArms",
+          "Infantry Armor": "InfantryArmor",
+          "Infantry Forces": "InfantryForces",
+          "Mega-Vehicles": "MegaVehicles",
+          "Technologies": "Technologies",
+          "Miscellaneous": "Misc"
+        },
+        Races: {
+          Gesan: "Gesan",
+          Vingresan: "Vingresan"
+        },
+        Technology: {
+          Agriculture: "Agriculture",
+          Communications: "Communications",
+          Materials: "Materials",
+          Media: "Media",
+          Medicine: "Medicine",
+          Transit: "Transit"
+        },
+        VoidCraft: {
+          FlagShip: "FlagShip",
+          Fleet: "Fleet",
+          "Landing Vessel": "HulkShip",
+          "TransAt Fighter": "NeedleShip",
+          "Battleship": "ShatterShip",
+          "Battleship Armor": "ShatterArmor"
+        },
+        Ahmde: {
+          Baner: "Baner",
+          Gesak: "Gesak",
+          Gobkiv: "Gobkiv",
+          Olkis: "Olkis",
+          Senden: "Senden"
+        },
+        Chivrakis: {
+          Banver: "Banver",
+          Gaden: "Gaden",
+          Vingreg: "Vingreg"
+        },
+        Oluseman: {
+          Asteroids: "Asteroids",
+          Gesnach: "Gesnach",
+          Olns: "Olns"
+        }
+      }
+      
+      function generateNav(nav) {
+        //window.alert("generating nav...");
+        var tabs = [];
+        var navs = [];
+        for (var k in pages) {
+          if (pages.hasOwnProperty(k)) {
+            // generate tab
+            tabs.push('<button id="' + k + 'tab" class="tab w3-bar-item w3-button w3-hover-white" onclick="toggleSec(\'' + k + 'nav\'); toggleOpen(this); navClose++;">' + k + ' <i class="fa fa-caret-down"></i></button>');
+            // generate topics
+            var topics = [];
+            for (var ik in pages[k]) {
+              if (pages[k].hasOwnProperty(ik)) {
+                // open tag
+                topics.push('<button class="w3-bar-item w3-button w3-hover-white" onclick="ca(); loadDoc(\'');
+                // insert dir
+                topics.push(k);
+                topics.push('/');
+                topics.push(pages[k][ik]);
+                topics.push('\');">');
+                // insert title
+                topics.push(ik);
+                // close tag
+                topics.push('</button>');
+              }
+            }
+            // generate sec
+            navs.push('<div id="' + k + 'nav" class="sec w3-bar w3-hide graphene">' + topics.join('') + '</div>');
+          }
+        }
+        nav.innerHTML += tabs.join('');
+        nav.innerHTML += navs.join('');
+      }
+      function removeElement(elementId) {
+        // Removes an element from the document
+        var element = document.getElementById(elementId);
+        element.parentNode.removeChild(element);
+      }
+      // generateNav(document.getElementById('nav'));
+    </script>
+  </head>
+  <body class="farback" onclick="if (navClose>0 && ++navClose > 2) {navClose=0; ca()};" onload="generateNav(document.getElementById('nav'));">
+    <header class="w3-container w3-xlarge w3-animate-opacity thorn">
+      <!--<a class="w3-bar-item w3-button" href="#"><i class="fa fa-bars"></i></a> -->
+      <span class="w3-bar-item" id="title" href="https://vogelian-wiki.glitch.me/#">The Vogelian Supremacy</span>
+      <!-- include the Glitch button to show what the webpage is about and
+            to make it easier for folks to view source and remix -->
+      <!--<div class="glitchButton w3-right w3-bar-item"></div>
+      <script src="https://button.glitch.me/button.js"></script> -->
+    </header>
+    
+    <nav id="nav" class="w3-bar w3-mobile w3-animate-opacity terran" style="top: 0px;">
+      <button class="w3-bar-item w3-button w3-hover-white" onclick="loadDoc('Culture/Overview');">Home
+      </button>
+      <button class="w3-bar-item w3-button w3-hover-white" onclick="document.getElementById('port').src = '/Pages/gallery.html';">Gallery
+      </button>
+    </nav>
+
+    <main class="w3-mobile supremacy animate-opacity-1">
+      <div class="w3-container" style="width: 100%; height: 100%;">
+        <iframe id="port" src="/Pages/Culture/Overview.xhtml">     
+        </iframe>
+      </div>
+    </main>
+
+    <div id="footer" class="w3-hide-small terran w3-hover-white w3-animate-opacity" style="text-align: center; cursor: pointer;" onclick="removeElement('footer'); removeElement('credits');">
+      <i class="fa fa-caret-down"></i>
+    </div>
+    <footer id="credits" class="w3-cell-row w3-animate-opacity terran w3-hide-small">
+      <div class="w3-cell w3-mobile w3-panel w3-hover-white" onclick="//window.location.href = 'https://glitch.com';" style="padding-top: 12px; cursor: pointer;">
+        <img src="https://cdn.glitch.com/470f34cb-d2b0-47bf-aac0-e53b344bee09%2Fphilliprogatkin.png?v=1577162945755" alt="[Phillip Rogatkin]" class="w3-left w3-circle" style="height: 4em; vertical-align: text-top; margin-right: 12px;" />
+        <p>
+          Phillip Rogatkin
+          <br />
+          <i>
+            Project head, writer, and designer
+          </i>
+        </p>
+      </div>
+      <div class="w3-cell w3-mobile w3-panel w3-hover-white" onclick="//window.location.href = 'https://glitch.com';" style="padding-top: 12px; cursor: pointer;">
+        <img src="https://cdn.glitch.com/470f34cb-d2b0-47bf-aac0-e53b344bee09%2Fepicoverwatch.png?v=1577162949382" alt="[Epicoverwatch]" class="w3-left w3-circle" style="height: 4em; vertical-align: text-top; margin-right: 12px;" />
+        <p>
+          Epicoverwatch
+          <br />
+          <i>
+            Technical and military advisement
+          </i>
+        </p>
+      </div>
+      <div class="w3-cell w3-mobile w3-panel w3-hover-white" style="padding-top: 12px;">
+        <img src="https://a.deviantart.net/avatars-big/p/i/pixelguru26.png?7" alt="[Pixelguru26]" class="w3-left w3-circle" style="height: 4em; vertical-align: text-top; margin-right: 12px;" />
+        <p>
+          Pixel
+          <br />
+          <i>
+            Site, art, Vingresans and further technical advisement
+          </i>
+        </p>
+      </div>
+      <div class="w3-cell w3-mobile w3-panel w3-hover-white" onclick="window.location.href = 'https://glitch.com';" style="padding-top: 12px; cursor: pointer;">
+        <img src="https://cdn.glitch.com/2bdfb3f8-05ef-4035-a06e-2043962a3a13%2Flogo-day.svg" alt="[Glitch.com]" class="w3-left w3-circle" style="height: 4em; vertical-align: text-middle; margin-right: 12px;" />
+        <p>
+          Made with Glitch!
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

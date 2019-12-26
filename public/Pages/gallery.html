@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+  <head>
+    <link rel="stylesheet" href="/style-slides.css">
+    <link rel="stylesheet" href="/theme-supremacy.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script type="text/javascript">
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("slides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+      } 
+    </script>
+  </head>
+  <body style="background-color:#660000; width: 100%;" onload="currentSlide(1)">
+    <div class="" style="display: flex; flex-direction: row; width: 100%; align-content: center; justify-content: center;">
+      <!-- Next and previous buttons -->
+      <button class="prev" style="" onclick="plusSlides(-1);">&#10094;</button>
+      <!-- The dots/circles -->
+      <div style="text-align:center; flex-grow: 1;">
+        <span class="dot" onclick="currentSlide(1);"></span>
+        <span class="dot" onclick="currentSlide(2);"></span>
+        <span class="dot" onclick="currentSlide(3);"></span>
+        <span class="dot" onclick="currentSlide(4);"></span>
+        <span class="dot" onclick="currentSlide(5);"></span>
+        <span class="dot" onclick="currentSlide(6);"></span>
+        <span class="dot" onclick="currentSlide(7);"></span>
+        <span class="dot" onclick="currentSlide(8);"></span>
+        <span class="dot" onclick="currentSlide(9);"></span>
+        <span class="dot" onclick="currentSlide(10);"></span>
+        <span class="dot" onclick="currentSlide(11);"></span>
+      </div> 
+      <button class="next" style="" onclick="plusSlides(1);">&#10095;</button>
+    </div>
+    <br />
+    <!-- Slideshow container -->
+    <div class="slideshow-container w3-center; width: 100%; height: 100%;">
+      <!-- Full-width images with number and caption text -->
+      <div class="slides fade w3-center">
+        <div class="numbertext">1</div>
+        <a href="https://www.furaffinity.net/view/34337321/"><img src="https://d.facdn.net/art/pixelguru/1577166606/1577166606.pixelguru_gesan.png" alt="[The Gesan Race - Commander Soama]" style="box-shadow: 0 0 3px #000000;"></a>
+        <div class="text">The Gesan Race; Commander Soama</div>
+      </div>
+
+      <div class="slides fade w3-center">
+        <div class="numbertext">2</div>
+        <img src="https://cdn.glitch.com/470f34cb-d2b0-47bf-aac0-e53b344bee09%2Fimage2.png?v=1577169539458" alt="[Shatter Class FTL Battleship]" style="box-shadow: 0 0 3px #000000;" />
+        <div class="text">The Shatter Class FTL Battleship</div>
+      </div>
+
+      <div class="slides fade w3-center">
+        <div class="numbertext">3</div>
+        <img src="https://cdn.glitch.com/470f34cb-d2b0-47bf-aac0-e53b344bee09%2FVogelian%20Supremacy%20Flag.png?v=1577169607850" alt="[Vogelian Supremacy Flag]" style="box-shadow: 0 0 3px #000000;" />
+        <div class="text">The Vogelian Supremacy Flag</div>
+      </div>
+
+      <div class="slides fade w3-center">
+        <div class="numbertext">4</div>
+        <img src="https://cdn.glitch.com/470f34cb-d2b0-47bf-aac0-e53b344bee09%2Fimage3.png?v=1577169539183" alt="[Vogelian Supremacy Flag]" style="box-shadow: 0 0 3px #000000;" />
+        <div class="text">The Mark-1 Drakengarde; Config 1</div>
+      </div>
+
+      <div class="slides fade w3-center">
+        <div class="numbertext">5</div>
+        <img src="https://cdn.glitch.com/470f34cb-d2b0-47bf-aac0-e53b344bee09%2Fimage5.png?v=1577169539854" alt="[Vogelian Supremacy Flag]" style="box-shadow: 0 0 3px #000000;" />
+        <div class="text">The Mark-1 Drakengarde; Config 2</div>
+      </div>
+
+      <div class="slides fade w3-center">
+        <div class="numbertext">6</div>
+        <img src="https://cdn.glitch.com/470f34cb-d2b0-47bf-aac0-e53b344bee09%2Fimage8.png?v=1577169539729" alt="[Vogelian Supremacy Flag]" style="box-shadow: 0 0 3px #000000;" />
+        <div class="text">A Vingresan Worker</div>
+      </div>
+
+      <div class="slides fade w3-center">
+        <div class="numbertext">7</div>
+        <img src="https://cdn.glitch.com/470f34cb-d2b0-47bf-aac0-e53b344bee09%2Fvingresan.png?v=1577169853946" alt="[Vogelian Supremacy Flag]" style="box-shadow: 0 0 3px #000000;" />
+        <div class="text">Vingresan Species Concept</div>
+      </div>
+
+      <div class="slides fade w3-center">
+        <div class="numbertext">8</div>
+        <img src="https://cdn.glitch.com/470f34cb-d2b0-47bf-aac0-e53b344bee09%2Fimage6.png?v=1577169539990" alt="[Vogelian Supremacy Flag]" style="box-shadow: 0 0 3px #000000;" />
+        <div class="text">V-9 Cheb Heavy Assault Helicopter Concept</div>
+      </div>
+
+      <div class="slides fade w3-center">
+        <div class="numbertext">9</div>
+        <img src="https://cdn.glitch.com/470f34cb-d2b0-47bf-aac0-e53b344bee09%2Fimage7.png?v=1577169539917" alt="[Vogelian Supremacy Flag]" style="box-shadow: 0 0 3px #000000;" />
+        <div class="text">Hulk-Class Heavy Lander Concept</div>
+      </div>
+
+      <div class="slides fade w3-center">
+        <div class="numbertext">10</div>
+        <img src="https://cdn.glitch.com/470f34cb-d2b0-47bf-aac0-e53b344bee09%2Fimage4.png?v=1577169539777" alt="[Vogelian Supremacy Flag]" style="box-shadow: 0 0 3px #000000;" />
+        <div class="text">Shatter Class Armor Diagram</div>
+      </div>
+
+      <div class="slides fade w3-center">
+        <div class="numbertext">11</div>
+        <img src="https://cdn.glitch.com/470f34cb-d2b0-47bf-aac0-e53b344bee09%2Fhelmet.png?v=1577169853828" alt="[Vogelian Supremacy Flag]" style="box-shadow: 0 0 3px #000000;" />
+        <div class="text">Early Vogelian Helmet Concept</div>
+      </div>
+    </div>
+  </body>
+</html>
